@@ -1,5 +1,7 @@
 
 -- Use the `ref` function to select from other models
 
-select * from public.segment s 
-order by created_date  desc
+{{ config(materialized='table') }}
+
+select count(*) from public.segment
+where updated_by = 'Ajay Kumar'
